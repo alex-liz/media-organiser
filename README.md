@@ -216,6 +216,108 @@ The script tries multiple methods to extract dates. If all fail, it uses the fil
 - Files have EXIF data (for photos)
 - Filenames contain recognizable date patterns
 - File modification dates are correct
+## Development
+
+### Project Structure
+
+```
+media-organiser/
+├── media_organiser/
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── organizer.py
+│   │   ├── duplicate_detector.py
+│   │   └── date_extractor.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── exceptions.py
+│   │   ├── logger.py
+│   │   └── file_operations.py
+│   ├── config/
+│   │   ├── __init__.py
+│   │   └── config.py
+│   └── cli/
+│       ├── __init__.py
+│       └── commands.py
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test_file_operations.py
+│   ├── test_duplicate_detector.py
+│   ├── test_date_extractor.py
+│   └── test_organizer.py
+├── setup.py
+├── requirements.txt
+├── requirements-dev.txt
+└── README.md
+```
+
+### Installation for Development
+
+```bash
+# Clone the repository
+git clone https://github.com/alex-liz/media-organiser.git
+cd media-organiser
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install in development mode
+pip install -e .[dev]
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=media_organiser --cov-report=html
+
+# Run specific test file
+pytest tests/test_organizer.py -v
+
+# Run with verbose output
+pytest -v
+```
+
+### Code Quality
+
+```bash
+# Format code with black
+black media_organiser/ tests/
+
+# Check code style with flake8
+flake8 media_organiser/ tests/
+
+# Type checking with mypy
+mypy media_organiser/
+```
+
+### Configuration File
+
+Create a `config.yaml` file to customize behavior:
+
+```yaml
+organize:
+  mode: year_month
+  remove_duplicates: true
+  dry_run: false
+
+logging:
+  level: INFO
+  file: organiser.log
+```
+
+Then use it:
+
+```bash
+media-organiser ~/Pictures --config config.yaml
+```
 
 ## 🤝 Contributing
 

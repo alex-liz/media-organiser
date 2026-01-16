@@ -1,0 +1,34 @@
+# Media Organiser Configuration
+
+file_extensions:
+  images:
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .heic
+  videos:
+    - .mp4
+    - .mov
+    - .avi
+    - .mkv
+
+organize:
+  mode: year_month  # Options: none, year, year_month, year_month_day
+  remove_duplicates: false
+  dry_run: true
+
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR
+  file: media_organiser.log
+  console: true
+
+date_extraction:
+  prefer_exif: true
+  fallback_to_filename: true
+  fallback_to_mtime: true
+
+advanced:
+  hash_algorithm: sha256
+  secure_delete: false
+  create_backup: false

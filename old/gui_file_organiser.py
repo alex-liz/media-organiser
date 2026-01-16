@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
-from file_organiser import MediaOrganizer
+from file_organiser import MediaOrganiser
 import threading
 import queue
 import sys
@@ -31,7 +31,7 @@ class StdoutRedirector:
             self._buffer = ""
 
 
-class MediaOrganizerGUI(tk.Tk):
+class MediaOrganiserGUI(tk.Tk):
     def __init__(self):
         super().__init__()
 
@@ -175,7 +175,7 @@ class MediaOrganizerGUI(tk.Tk):
         sys.stdout = StdoutRedirector(self.log_queue)
 
         try:
-            organizer = MediaOrganizer(
+            organizer = MediaOrganiser(
                 path=self.path_var.get(),
                 organize_mode=self.organize_var.get(),
                 remove_duplicates=self.remove_duplicates_var.get(),
@@ -212,5 +212,5 @@ class MediaOrganizerGUI(tk.Tk):
 
 
 if __name__ == "__main__":
-    app = MediaOrganizerGUI()
+    app = MediaOrganiserGUI()
     app.mainloop()

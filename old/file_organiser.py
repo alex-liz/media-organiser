@@ -24,7 +24,7 @@ except ImportError:
     print("Install with: pip install Pillow")
 
 
-class MediaOrganizer:
+class MediaOrganiser:
     def __init__(
             self,
             path,

@@ -9,7 +9,7 @@ from .core.organiser import MediaOrganiser
 from .core.duplicate_detector import DuplicateDetector
 from .core.date_extractor import DateExtractor
 from .utils.exceptions import (
-    MediaOrganizerError,
+    MediaOrganiserError,
     FileOperationError,
     DateExtractionError,
     DuplicateDetectionError
@@ -19,7 +19,7 @@ __all__ = [
     'MediaOrganiser',
     'DuplicateDetector',
     'DateExtractor',
-    'MediaOrganizerError',
+    'MediaOrganiserError',
     'FileOperationError',
     'DateExtractionError',
     'DuplicateDetectionError'

@@ -3,14 +3,14 @@ Tests for media organizer.
 """
 
 import pytest
-from media_organiser.core.organizer import MediaOrganizer, OrganizeMode
+from media_organiser.core.organizer import MediaOrganiser, OrganizeMode
 
 
-class TestMediaOrganizer:
+class TestMediaOrganiser:
 
     def test_initialization(self, temp_dir):
         """Test organizer initialization."""
-        organizer = MediaOrganizer(
+        organizer = MediaOrganiser(
             temp_dir,
             organize_mode=OrganizeMode.YEAR_MONTH,
             remove_duplicates=True,
@@ -25,7 +25,7 @@ class TestMediaOrganizer:
         """Test that dry run doesn't modify files."""
         temp_dir = sample_images[0].parent
 
-        organizer = MediaOrganizer(
+        organizer = MediaOrganiser(
             temp_dir,
             organize_mode=OrganizeMode.YEAR,
             dry_run=True
@@ -41,7 +41,7 @@ class TestMediaOrganizer:
         """Test duplicate removal."""
         temp_dir = duplicate_files[0].parent
 
-        organizer = MediaOrganizer(
+        organizer = MediaOrganiser(
             temp_dir,
             remove_duplicates=True,
             dry_run=False
